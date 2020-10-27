@@ -1,19 +1,15 @@
 #timeline {
-	 display: flex;
-	 margin: 0 auto;
-	 flex-wrap: wrap;
-	 flex-direction: column;
-	 max-width: 700px;
-}
-
-.timeline-container {
+	display: flex;
+	margin: 0 auto;
+	flex-wrap: wrap;
+	flex-direction: column;
   width: 100%;
   position: relative;
   padding: 5rem 0 2rem 0;
   transition: 0.3s ease 0s;
 }
 
-.timeline-container:before {
+#timeline:before {
   position: absolute;
   left: 0;
   top: 0;
