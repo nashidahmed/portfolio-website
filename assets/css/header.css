@@ -1,32 +1,6 @@
-.brand-container {
-  margin-left: 2.5rem;
-  display: flex;
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: var(--header-height);
-  align-items: center;
-  transition: background-color 1s;
-  mix-blend-mode: exclusion;
-  filter: invert(1);
-}
-
-.brand {
-  display: flex;
-}
-
-.logo {
-  height: 2.5rem;
-}
-
-.brand-name {
-  margin-left: 0.5rem;
-}
-
 header {
   height: var(--header-height);
-  z-index: 100;
+  z-index: 10;
   position: fixed;
   width: 100%;
   top: 0;
@@ -41,29 +15,10 @@ header {
   margin-right: 2.5rem;
 }
 
-.brand-name .stretch {
-  width: 10rem;
-  font-weight: bold;
-}
-
 .nav-links > a {
   cursor: pointer;
   color: black;
   margin: 0 0.5rem 0;
-}
-
-.brand-name .full-name {
-  font-size: 1.25rem;
-  font-weight: bold;
-  font-variant: small-caps;
-}
-
-.brand-name .brand-designation {
-  font-size: 0.75rem;
-}
-
-.full-name.stretch-it {
-  white-space: nowrap;
 }
 
 @media only screen and (max-width: 768px) {
@@ -71,10 +26,6 @@ header {
     height: 2.5rem;
   }
 
-  .brand-container {
-    margin-left: 1rem;
-  }  
-  
   header {
     min-height: var(--header-height);
     justify-content: flex-start;
@@ -113,7 +64,7 @@ header {
     width: 1.5rem;
     height: 1.25rem;
     position: fixed;
-    z-index: 999;
+    z-index: 100;
     top: 1.25rem;
     right: 1rem;
     -webkit-transform: rotate(0deg);

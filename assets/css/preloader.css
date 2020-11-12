@@ -1,9 +1,82 @@
+:root {
+  --header-height: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --header-height: 4rem;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  scrollbar-width: 0.4rem;
+  scrollbar-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.2);
+}
+
+body.loaded {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  width: 0.4rem;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);        /* color of the tracking area */
+  opacity: 0;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4);    /* color of the scroll thumb */
+  border-radius: 0.5rem;       /* roundness of the scroll thumb */
+}
+
+.font-weight-light {
+  font-weight: lighter;
+}
+
+.my-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.brand-container {
+  margin-left: 2.5rem;
+  display: flex;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: var(--header-height);
+  align-items: center;
+  transition: background-color 1s;
+  mix-blend-mode: exclusion;
+  filter: invert(1);
+}
+
+.brand {
+  display: flex;
+}
+
+.logo {
+  height: 2.5rem;
+}
+
+body.loaded .preloader {
+  display: none;
+}
+
 .preloader {
   top: 0;
   color: white;
   position: fixed;
   width: 100vw;
   background: url('../img/preloader-img.jpg') no-repeat;
+  background: url('../img/preloader-img.webp') no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -60,4 +133,10 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+@media only screen and (max-width: 768px) {
+  .brand-container {
+    margin-left: 1rem;
+  }  
 }

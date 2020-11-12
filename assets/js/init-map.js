@@ -201,7 +201,7 @@ function initMap() {
   });
 
   const icon = {
-    url: 'assets/img/map-marker.svg',
+    url: 'img/map-marker.svg',
     anchor: new google.maps.Point(30, 60),
     scaledSize: new google.maps.Size(60, 60)
   };
