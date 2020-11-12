@@ -1,6 +1,18 @@
-import './assets/js/common.js';
+/**
+ * Navigates to the element
+ *
+ */
+$.fn.navigate = function (duration) {
+  const elem = this;
+  const heightInRem = parseFloat(getComputedStyle(document.body).getPropertyValue('--header-height'));
+  const heightInPx = parseFloat(getComputedStyle(document.documentElement).fontSize) * heightInRem;
 
-$(function() {
+  $([document.documentElement, document.body]).animate({
+    scrollTop: elem.offset().top - heightInPx
+  }, duration, 'easeInOutCubic');
+};
+
+$(function () {
   const minScrollDuration = 1000;
   let skillsHTML = "";
   let workHTML = "";
@@ -103,7 +115,9 @@ $(function() {
     company: 'allegiant',
     bgClass: 'allegiant-bg',
     link: 'https://www.allegiantair.com/',
-    logo: 'assets/img/allegiant-logo.svg',
+    logo: 'img/allegiant-logo.svg',
+    logoWidth: 96,
+    logoHeight: 96 / 3,
     isLogoRight: true,
     title: 'Flight Movement Management',
     subtitle: 'Allegiant Airlines',
@@ -113,8 +127,9 @@ $(function() {
     company: 'chapel',
     bgClass: 'chapel-bg',
     link: 'https://www.littlechapel.com/',
-    logo: 'assets/img/cof-logo.png',
-    isLogoRight: true,
+    logo: 'img/cof-logo.png',
+    logoWidth: 96,
+    logoHeight: 96 * 0.75,
     title: 'Little Chapel',
     subtitle: 'Chapel of the Flowers',
     tags: 'AngularJS / .NET MVC / SQL / Html / Css / IIS',
@@ -123,7 +138,9 @@ $(function() {
     company: 'tropicana',
     bgClass: 'trop-bg',
     link: 'https://www.tropicanalvweddings.com/',
-    logo: 'assets/img/trop-logo.svg',
+    logo: 'img/trop-logo.svg',
+    logoWidth: 96,
+    logoHeight: 96 / 3,
     isLogoRight: true,
     title: 'Tropicana LV Weddings',
     subtitle: 'Chapel of the Flowers',
@@ -133,7 +150,9 @@ $(function() {
     company: 'pnw',
     bgClass: 'olas-bg',
     link: 'https://www.olasjobs.org/',
-    logo: 'assets/img/pnw-logo.png',
+    logo: 'img/pnw-logo.png',
+    logoWidth: 112,
+    logoHeight: 112 / 4.7,
     isLogoRight: false,
     title: 'Online Job Application System',
     subtitle: 'PNW BOCES',
@@ -143,7 +162,9 @@ $(function() {
     company: 'nitc',
     bgClass: 'vending-machine-bg',
     link: 'http://www.nitc.ac.in/',
-    logo: 'assets/img/nitc-logo.png',
+    logo: 'img/nitc-logo.png',
+    logoWidth: 80,
+    logoHeight: 80 / 0.84,
     isLogoRight: false,
     title: 'RFID Vending Machine',
     subtitle: 'Major Project | National Institute of Technology, Calicut',
@@ -153,29 +174,33 @@ $(function() {
     company: 'nitc',
     bgClass: 'phone-jammer-bg',
     link: 'http://www.nitc.ac.in/',
-    logo: 'assets/img/nitc-logo.png',
+    logo: 'img/nitc-logo.png',
+    logoWidth: 80,
+    logoHeight: 80 / 0.84,
     isLogoRight: false,
     title: 'Mobile Phone Jammer',
     subtitle: 'Minor Project | National Institute of Technology, Calicut',
     tags: 'Electronics',
     description: 'Created a cost-effective mobile phone detector and jammer which could extend over an entire room intended to be used in examination halls.'
   },
-  // {
-  //   company: 'nitc',
-  //   bgClass: 'assets/img/line-following-robot.jpg',
-  //   link: 'http://www.nitc.ac.in/',
-  //   logo: 'assets/img/nitc-logo.png',
-  //   isLogoRight: false,
-  //   title: 'Line Following Robot',
-  //   subtitle: 'Robotics Interest Group | National Institute of Technology, Calicut',
-  //   tags: 'Electrical / Electronics / Arduino / C',
-  //   description: 'The Online Application System for K-12 Education (OLAS) is a cloud-based job application system serving schools & districts throughout New York State and surrounding areas.'
-  // }
+    // {
+    //   company: 'nitc',
+    //   bgClass: 'img/line-following-robot.jpg',
+    //   link: 'http://www.nitc.ac.in/',
+    //   logo: 'img/nitc-logo.png',
+    //   logoWidth: 80,
+    //   logoHeight: 80 / 0.84,
+    //   isLogoRight: false,
+    //   title: 'Line Following Robot',
+    //   subtitle: 'Robotics Interest Group | National Institute of Technology, Calicut',
+    //   tags: 'Electrical / Electronics / Arduino / C',
+    //   description: 'The Online Application System for K-12 Education (OLAS) is a cloud-based job application system serving schools & districts throughout New York State and surrounding areas.'
+    // }
   ];
 
   // Scroll to the element provided
   const scrollTo = (elem) => {
-    const duration = Math.abs(elem.offset().top - $(window).scrollTop()) * (1/2);
+    const duration = Math.abs(elem.offset().top - $(window).scrollTop()) * (1 / 2);
     elem.navigate(duration > minScrollDuration ? duration : minScrollDuration);
   };
 
@@ -194,17 +219,17 @@ $(function() {
     });
   });
 
-  $('#nav-icon').on('click', function() {
+  $('#nav-icon').on('click', function () {
     $(this).toggleClass('open');
     $('header').toggleClass('open');
   });
 
   // Scroll to top of the page
   function scrollToTop() {
-    if ($(this).scrollTop() > 300) { 
-      $('#scrollToTop').fadeIn(); 
-    } else { 
-      $('#scrollToTop').fadeOut(); 
+    if ($(this).scrollTop() > 300) {
+      $('#scrollToTop').fadeIn();
+    } else {
+      $('#scrollToTop').fadeOut();
     }
   }
 
@@ -214,9 +239,9 @@ $(function() {
   function setActiveNav() {
     $('section').each(function () {
       const cutoff = $(window).scrollTop() + 2 * $('header').height();
-      if($(this).offset().top <= cutoff && $(this).offset().top + $(this).height() > cutoff) {
-        const activeId = $(this).attr('id')
-        $('#nav-links').find('a').each(function() {
+      if ($(this).offset().top <= cutoff && $(this).offset().top + $(this).height() > cutoff) {
+        const activeId = $(this).attr('id');
+        $('#nav-links').find('a').each(function () {
           $(this).toggleClass('active', $(this).attr('id').replace('nav-', '') === activeId);
         });
       }
@@ -230,14 +255,14 @@ $(function() {
     // Calc current offset and get all animatables
     const bottomOffset = $(window).scrollTop() + $(window).height();
     const animatables = $('.animatable');
-    
+
     // Unbind scroll handler if we have no animatables
     if (animatables.length === 0) {
       $(window).off('scroll', scrollAnimations);
     }
 
     // Check all animatables and animate them if necessary
-    animatables.each(function(i) {
+    animatables.each(function () {
       const animatable = $(this);
       if ((animatable.offset().top + animatable.height() - 20) < bottomOffset || (animatable.offset().top + 120) < bottomOffset) {
         animatable.removeClass('animatable').addClass('animated');
@@ -247,17 +272,17 @@ $(function() {
 
   $(window).on('scroll', scrollAnimations);
 
-  $.each(skillGroups, function(index, skillGroup) {
+  $.each(skillGroups, function (index, skillGroup) {
     let skills = "";
 
-    $.each(skillGroup.skills, function(index, skill) {
+    $.each(skillGroup.skills, function (index, skill) {
       skills += `<p class="skill-names">
         ${skill.name}
       </p>
       <div class="skill-bar-container">
         <div style="width: ${skill.level}%;" class="skill-bar animatable expand"></div>
-      </div>`
-    })
+      </div>`;
+    });
 
     skillsHTML += `<div class="skill-group">
       <h3 class="group-heading">
@@ -271,20 +296,20 @@ $(function() {
 
   $('#skills').html(skillsHTML);
 
-  $.each(works, function(index, work) {
+  $.each(works, function (index, work) {
     workHTML += `<div class="timeline-item animatable fadeInUp" data-text="${work.timeline}">
       <div class="timeline-content">
         <h2 class="timeline-content-title">${work.role}</h2>
         ${work.isCompany ? `<h3 class="timeline-content-company">
           COMPANY -
-          <a class="fancy-link" target="_blank" href="${work.link}">${work.name}</a>
+          <a class="fancy-link" target="_blank" rel="noreferrer" href="${work.link}">${work.name}</a>
         </h3>
         <h4 class="timeline-content-client">
           CLIENT -
-          <a class="fancy-link" target="_blank" href="${work.clientLink}">${work.client}</a>
+          <a class="fancy-link" target="_blank" rel="noreferrer" href="${work.clientLink}">${work.client}</a>
         </h4>` : `<h3 class="timeline-content-company">
           UNIVERSITY -
-          <a class="fancy-link" target="_blank" href="${work.link}">${work.name}</a>
+          <a class="fancy-link" target="_blank" rel="noreferrer" href="${work.link}">${work.name}</a>
         </h3>`}
         <p class="timeline-content-desc">${work.description}</p>
       </div>
@@ -293,13 +318,13 @@ $(function() {
 
   $('#timeline').html(workHTML);
 
-  $.each(projects, function(index, project) {
+  $.each(projects, function (index, project) {
     projectsHTML += `<div class="col animatable fadeInUp">
-      <a target="_blank" href="${project.link}">
+      <a target="_blank" rel="noreferrer" href="${project.link}">
         <div class="bg-img ${project.bgClass}"></div>
         <div class="project-info">
           <div class="logo ${project.isLogoRight ? 'text-right' : ''} ${project.company}-logo">
-            <img src="${project.logo}" />
+            <img src="${project.logo}" width="${project.logoWidth}" height="${project.logoHeight}" alt="${project.company} logo" />
           </div>
           <h2 class="project-title">
             ${project.title}
@@ -316,21 +341,20 @@ $(function() {
           </span>
         </div>
       </a>
-    </div>`
+    </div>`;
   });
-  
+
   $('#project-list').html(projectsHTML);
 
   // Run of page load to trigger preloader
-  $(window).on('load', function() {
-    $('.brand-container').addClass('loaded')
-    $('.preloader').addClass('loaded')
+  $(window).on('load', function () {
+    $('.brand-container').addClass('loaded');
+    $('.preloader').addClass('loaded');
     setTimeout(() => {
-      $('body').addClass('loaded')
-    }, 900)
+      $('body').addClass('loaded');
+    }, 1000);
   });
 
   // Trigger scroll initially in case user is not at the top of the page
   $(window).trigger('scroll');
-
 });
