@@ -8,6 +8,7 @@ const cleanCSS = require('gulp-clean-css');
 const cssbeautify = require('gulp-cssbeautify');
 const concat = require('gulp-concat'); 
 const htmlmin = require('gulp-htmlmin'); 
+const inlinesource = require('gulp-inline-source');
 const eslint = require('gulp-eslint');
 const imagemin = require("gulp-imagemin");
 const autoprefixer = require('autoprefixer');
@@ -19,7 +20,7 @@ const browsersync = require('browser-sync').create();
 
 // Specify the Source files
 const SRC_HTML = ['index.html'];
-const SRC_JS = ['app.js', 'assets/js/init-map.js'];
+const SRC_JS = 'app.js';
 const SRC_JQUERY = ['assets/js/jquery-3.5.1.min.js', 'assets/js/jquery-ui-1.12.1.min.js'];
 const SRC_CSS = ['assets/css/*.css', '!assets/css/preloader.css'];
 const SRC_PRELOADER_CSS = 'assets/css/preloader.css';
@@ -106,7 +107,8 @@ function preloaderCssBuild() {
 
 function htmlBuild() {
   return src(SRC_HTML)
-    .pipe(htmlmin({ collapseWhitespace: false }))
+    .pipe(htmlmin({ collapseWhitespace: false, removeComments: true }))
+    .pipe(inlinesource({ compress: true }))
     .pipe(dest(DEST_HTML));
 }
 
@@ -157,7 +159,7 @@ const watcher = parallel(watchFiles, browserSync);
 exports.lint = lint;
 exports.htmlBuild = series(htmlClean, htmlBuild);
 exports.jsBuild = series(jsClean, lint, parallel(jsBuild, jqueryCopy));
-exports.cssBuild = series(cssClean, cssBuild, preloaderCssBuild);
+exports.cssBuild = series(cssClean, parallel(cssBuild, preloaderCssBuild));
 exports.pdfCopy = pdfCopy;
 exports.jqueryCopy = jqueryCopy;
 exports.images = images;
