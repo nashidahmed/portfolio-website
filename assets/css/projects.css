@@ -19,7 +19,7 @@
   position: relative;
 }
 
-.col > a > .bg-img {
+.col > .bg-img {
   background-size: cover;
   background-position: center;
   height: 100%;
@@ -31,7 +31,7 @@
   width: 100%;
 }
 
-.col > a > .project-info {
+.col > .project-info {
   height: 100%;
   width: 100%;
   display: flex;
@@ -51,8 +51,8 @@
   height: 100%;
 }
 
-.col:hover > a > .project-info,
-.col:focus > a > .project-info {
+.col:hover > .project-info,
+.col:focus > .project-info {
   visibility: visible;
   backdrop-filter: blur(2px);
   background-color: rgba(0,0,0,0.6);
@@ -65,8 +65,15 @@
   margin: 0.5rem 0;
 }
 
-.project-info > .project-title {
+.project-info .project-title {
   margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.project-info .project-title i {
+  font-size: 1rem;
+  top: -2px;
+  position: relative;
 }
 
 .project-info > .project-subtitle {
@@ -98,8 +105,8 @@
   text-align: justify;
 }
 
-.col:hover > a > .bg-img,
-.col:focus > a > .bg-img {
+.col:hover > .bg-img,
+.col:focus > .bg-img {
   -ms-transform: scale(1.05);
   -moz-transform: scale(1.05);
   -webkit-transform: scale(1.05);
@@ -147,9 +154,23 @@
   .col {
     width: 100%;
   }
+
+  .col > .bg-img {
+    position: relative;
+    height: 15rem;
+  }
   
-  .col > a > .project-info {
+  .col > .project-info {
     font-size: 0.75rem;
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+    color: black;
+    background-color: rgba(0,0,0,0.15);
+  }
+
+  .project-info > .logo {
+    display: none;
   }
 
   .projects {

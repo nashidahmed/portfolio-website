@@ -33,6 +33,7 @@
     "gulp-eslint": "^6.0.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^7.1.0",
+    "gulp-inline-source": "^4.0.0",
     "gulp-newer": "^1.4.0",
     "gulp-postcss": "^9.0.0",
     "gulp-terser": "^1.4.1",

@@ -249,6 +249,13 @@
     <!-- Main JS file -->
     <script type="module" src="js/app.min.js" async></script>
     
+    <!-- Google Maps API -->
+    <script src="assets/js/init-map.js" inline></script>
+    <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMzb5C3tCHtOBpxkraWbvYKAUQZjief5s&callback=initMap&libraries=&v=weekly"
+      type="text/javascript" defer>
+    </script>
+
     <!-- Font awesome icons -->
     <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest" defer></script>
     
@@ -257,6 +264,7 @@
     
     <!-- Lazy loading fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Pathway+Gothic+One&display=swap" media="print" onload="this.onload=null;this.removeAttribute('media');">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Pathway+Gothic+One&display=swap"></noscript>
     

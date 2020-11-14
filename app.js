@@ -118,7 +118,6 @@ $(function () {
     logo: 'img/allegiant-logo.svg',
     logoWidth: 96,
     logoHeight: 96 / 3,
-    isLogoRight: true,
     title: 'Flight Movement Management',
     subtitle: 'Allegiant Airlines',
     tags: 'Angular / RxJS / Html / Css / Karma / Jasmine / Cucumber',
@@ -141,7 +140,6 @@ $(function () {
     logo: 'img/trop-logo.svg',
     logoWidth: 96,
     logoHeight: 96 / 3,
-    isLogoRight: true,
     title: 'Tropicana LV Weddings',
     subtitle: 'Chapel of the Flowers',
     tags: 'AngularJS / GulpJS / .NET WebAPI / SQL / Html / Css',
@@ -151,9 +149,8 @@ $(function () {
     bgClass: 'olas-bg',
     link: 'https://www.olasjobs.org/',
     logo: 'img/pnw-logo.png',
-    logoWidth: 112,
-    logoHeight: 112 / 4.7,
-    isLogoRight: false,
+    logoWidth: 120,
+    logoHeight: 120 / 4.7,
     title: 'Online Job Application System',
     subtitle: 'PNW BOCES',
     tags: 'AngularJS / GulpJS / .NET WebAPI / SQL / Html / Css',
@@ -161,11 +158,10 @@ $(function () {
   }, {
     company: 'nitc',
     bgClass: 'vending-machine-bg',
-    link: 'http://www.nitc.ac.in/',
+    link: 'pdf/RFID vending machine thesis.pdf',
     logo: 'img/nitc-logo.png',
     logoWidth: 80,
     logoHeight: 80 / 0.84,
-    isLogoRight: false,
     title: 'RFID Vending Machine',
     subtitle: 'Major Project | National Institute of Technology, Calicut',
     tags: 'Electrical / Electronics / Mechanical / Arduino / C++',
@@ -173,11 +169,9 @@ $(function () {
   }, {
     company: 'nitc',
     bgClass: 'phone-jammer-bg',
-    link: 'http://www.nitc.ac.in/',
     logo: 'img/nitc-logo.png',
     logoWidth: 80,
     logoHeight: 80 / 0.84,
-    isLogoRight: false,
     title: 'Mobile Phone Jammer',
     subtitle: 'Minor Project | National Institute of Technology, Calicut',
     tags: 'Electronics',
@@ -190,7 +184,6 @@ $(function () {
     //   logo: 'img/nitc-logo.png',
     //   logoWidth: 80,
     //   logoHeight: 80 / 0.84,
-    //   isLogoRight: false,
     //   title: 'Line Following Robot',
     //   subtitle: 'Robotics Interest Group | National Institute of Technology, Calicut',
     //   tags: 'Electrical / Electronics / Arduino / C',
@@ -320,27 +313,26 @@ $(function () {
 
   $.each(projects, function (index, project) {
     projectsHTML += `<div class="col animatable fadeInUp">
-      <a target="_blank" rel="noreferrer" href="${project.link}">
-        <div class="bg-img ${project.bgClass}"></div>
-        <div class="project-info">
-          <div class="logo ${project.isLogoRight ? 'text-right' : ''} ${project.company}-logo">
-            <img src="${project.logo}" width="${project.logoWidth}" height="${project.logoHeight}" alt="${project.company} logo" />
-          </div>
-          <h2 class="project-title">
-            ${project.title}
-          </h2>
-          <span class="project-subtitle">
-            ${project.subtitle}
-          </span>
-          <p class="tags">
-            <i class="fa fa-tag"></i>
-            ${project.tags}
-          </p>
-          <span class="desc">
-            ${project.description}
-          </span>
+      <div class="bg-img ${project.bgClass}"></div>
+      <div class="project-info">
+        <div class="logo text-right ${project.company}-logo">
+          <img src="${project.logo}" width="${project.logoWidth}" height="${project.logoHeight}" alt="${project.company} logo" />
         </div>
-      </a>
+        <h2 class="project-title">
+          ${project.title} 
+          ${project.link ? `<a target="_blank" rel="noreferrer" href="${project.link}"><i class="fas fa-external-link-alt"></i></a>` : ''}
+        </h2>
+        <span class="project-subtitle">
+          ${project.subtitle}
+        </span>
+        <p class="tags">
+          <i class="fa fa-tag"></i>
+          ${project.tags}
+        </p>
+        <span class="desc">
+          ${project.description}
+        </span>
+      </div>
     </div>`;
   });
 
