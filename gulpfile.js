@@ -9,6 +9,7 @@ const cssbeautify = require('gulp-cssbeautify');
 const concat = require('gulp-concat'); 
 const htmlmin = require('gulp-htmlmin'); 
 const inlinesource = require('gulp-inline-source');
+const cachebust = require('gulp-cache-bust');
 const eslint = require('gulp-eslint');
 const imagemin = require("gulp-imagemin");
 const autoprefixer = require('autoprefixer');
@@ -21,9 +22,8 @@ const browsersync = require('browser-sync').create();
 // Specify the Source files
 const SRC_HTML = ['index.html'];
 const SRC_JS = 'app.js';
-const SRC_JQUERY = ['assets/js/jquery-3.5.1.min.js', 'assets/js/jquery-ui-1.12.1.min.js'];
+const SRC_JS_MODULES = ['assets/js/jquery-3.5.1.min.js', 'assets/js/jquery-ui-1.12.1.min.js', 'assets/js/lazysizes.min.js'];
 const SRC_CSS = ['assets/css/*.css', '!assets/css/preloader.css'];
-const SRC_PRELOADER_CSS = 'assets/css/preloader.css';
 const SRC_IMG = 'assets/img/*';
 const SRC_PDF = 'assets/pdf/*';
 
@@ -95,20 +95,13 @@ function cssBuild() {
     .pipe(dest(DEST_CSS));
 }
 
-// Build preloader CSS 
-function preloaderCssBuild() {
-  return src(SRC_PRELOADER_CSS)
-    .pipe(postcss([autoprefixer()]))
-    .pipe(cssbeautify({ autosemicolon: true }))
-    .pipe(cleanCSS({ compatibility: 'ie8' }))
-    .pipe(concat('preloader.min.css'))
-    .pipe(dest(DEST_CSS));
-}
-
 function htmlBuild() {
   return src(SRC_HTML)
-    .pipe(htmlmin({ collapseWhitespace: false, removeComments: true }))
+    .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
     .pipe(inlinesource({ compress: true }))
+    .pipe(cachebust({
+      type: 'timestamp'
+    }))
     .pipe(dest(DEST_HTML));
 }
 
@@ -130,8 +123,8 @@ function images() {
     .pipe(dest('dist/img'));
 }
 
-function jqueryCopy() {
-  return src(SRC_JQUERY)
+function jsModulesCopy() {
+  return src(SRC_JS_MODULES)
     .pipe(dest(DEST_JS));
 }
 
@@ -143,25 +136,25 @@ function pdfCopy() {
 // WATCH for file changes and run the tasks
 function watchFiles() {
   watch(SRC_JS, jsBuild);
-  watch(SRC_JQUERY, jqueryCopy);
-  watch([...SRC_CSS, SRC_PRELOADER_CSS], parallel(cssBuild, preloaderCssBuild));
+  watch(SRC_JS_MODULES, jsModulesCopy);
+  watch(SRC_CSS, cssBuild);
   watch(SRC_PDF, pdfCopy);
-  watch('index.html', htmlBuild);
+  watch(['assets/css/preloader.css', 'index.html'], htmlBuild);
   watch(SRC_IMG, images);
-  watch([...SRC_JS, ...SRC_CSS, SRC_PRELOADER_CSS, 'index.html'], browserSyncReload);
+  watch([...SRC_JS, ...SRC_CSS, 'index.html'], browserSyncReload);
 }
 
 const clean = parallel(jsClean, cssClean, imgClean);
-const build = parallel(htmlBuild, jsBuild, cssBuild, preloaderCssBuild, images, jqueryCopy, pdfCopy);
+const build = parallel(htmlBuild, jsBuild, cssBuild, images, jsModulesCopy, pdfCopy);
 const watcher = parallel(watchFiles, browserSync);
 
 // Export tasks
 exports.lint = lint;
 exports.htmlBuild = series(htmlClean, htmlBuild);
-exports.jsBuild = series(jsClean, lint, parallel(jsBuild, jqueryCopy));
-exports.cssBuild = series(cssClean, parallel(cssBuild, preloaderCssBuild));
+exports.jsBuild = series(jsClean, lint, parallel(jsBuild, jsModulesCopy));
+exports.cssBuild = series(cssClean, cssBuild);
 exports.pdfCopy = pdfCopy;
-exports.jqueryCopy = jqueryCopy;
+exports.jsModulesCopy = jsModulesCopy;
 exports.images = images;
 exports.watch = watcher;
 exports.build = build;

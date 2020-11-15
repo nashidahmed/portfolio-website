@@ -193,10 +193,16 @@ hr {
 @media screen and (max-width: 567px) {
   .fancy-button {
     padding: 0.6rem 1.2rem;
-    font-size: 0.7rem;
+    font-size: 0.875rem;
   }
 
   .footer-info {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .fancy-button {
+    font-size: 0.75rem;
   }
 }
