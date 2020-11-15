@@ -31,7 +31,7 @@
 
 .timeline-content-company {
   font-weight: normal;
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   margin: 0.25rem 0 0 0;
   color: rgba(0, 0, 0, .85);
   transition: 0.4s;
@@ -51,7 +51,7 @@
 
 .timeline-content-desc {
 	 margin: 0;
-	 font-size: 0.8rem;
+	 font-size: 0.875rem;
 	 box-sizing: border-box;
 	 color: rgba(0, 0, 0, .75);
 	 font-weight: normal;

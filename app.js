@@ -113,7 +113,8 @@ $(function () {
 
   const projects = [{
     company: 'allegiant',
-    bgClass: 'allegiant-bg',
+    bgImg: 'img/alegiant-thumbnail.jpg',
+    webPBgImg: 'img/allegiant-thumbnail.webp',
     link: 'https://www.allegiantair.com/',
     logo: 'img/allegiant-logo.svg',
     logoWidth: 96,
@@ -121,10 +122,11 @@ $(function () {
     title: 'Flight Movement Management',
     subtitle: 'Allegiant Airlines',
     tags: 'Angular / RxJS / Html / Css / Karma / Jasmine / Cucumber',
-    description: 'Flight Movement Management(FMM) is a web app crucial to the Operational Control Centre (OCC) in order to track, maintain, and modify flights.'
+    description: 'Flight Movement Management (FMM) is a web app crucial to the Operational Control Centre (OCC) in order to track, maintain, and modify flights.'
   }, {
     company: 'chapel',
-    bgClass: 'chapel-bg',
+    bgImg: 'img/chapel-thumbnail.png',
+    webPBgImg: 'img/chapel-thumbnail.webp',
     link: 'https://www.littlechapel.com/',
     logo: 'img/cof-logo.png',
     logoWidth: 96,
@@ -135,7 +137,8 @@ $(function () {
     description: 'Little Chapel is an E-commerce website for wedding bookings. Chapel of the Flowers features three unique chapels on its Las Vegas Strip grounds. Their three on-site chapel options include a traditional Victorian Chapel, the Tuscan-inspired La Capella Chapel, and the chic, modern Magnolia Chapel.'
   }, {
     company: 'tropicana',
-    bgClass: 'trop-bg',
+    bgImg: 'img/trop-thumbnail.png',
+    webPBgImg: 'img/trop-thumbnail.webp',
     link: 'https://www.tropicanalvweddings.com/',
     logo: 'img/trop-logo.svg',
     logoWidth: 96,
@@ -146,7 +149,8 @@ $(function () {
     description: 'Tropicana LV Weddings is an E-commerce website for wedding bookings, which offers several unique indoor and outdoor chapels at this famous Las Vegas resort.'
   }, {
     company: 'pnw',
-    bgClass: 'olas-bg',
+    bgImg: 'img/olas-thumbnail.png',
+    webPBgImg: 'img/olas-thumbnail.webp',
     link: 'https://www.olasjobs.org/',
     logo: 'img/pnw-logo.png',
     logoWidth: 120,
@@ -157,7 +161,8 @@ $(function () {
     description: 'The Online Application System for K-12 Education (OLAS) is a cloud-based job application system serving schools & districts throughout New York State and surrounding areas.'
   }, {
     company: 'nitc',
-    bgClass: 'vending-machine-bg',
+    bgImg: 'img/vending-machine-img.jpg',
+    webPBgImg: 'img/vending-machine-img.webp',
     link: 'pdf/RFID vending machine thesis.pdf',
     logo: 'img/nitc-logo.png',
     logoWidth: 80,
@@ -168,7 +173,8 @@ $(function () {
     description: 'Created a working prototype of an RFID vending machine that would allow students to buy items using their ID cards. Developed an understanding of secure authentication using an RFID reader. The software was developed in C++ on an Arduino board.'
   }, {
     company: 'nitc',
-    bgClass: 'phone-jammer-bg',
+    bgImg: 'img/jammer-thumbnail.jpg',
+    webPBgImg: 'img/jammer-thumbnail.webp',
     logo: 'img/nitc-logo.png',
     logoWidth: 80,
     logoHeight: 80 / 0.84,
@@ -312,11 +318,16 @@ $(function () {
   $('#timeline').html(workHTML);
 
   $.each(projects, function (index, project) {
+    const bgImgExt = project.bgImg.substr(-3);
     projectsHTML += `<div class="col animatable fadeInUp">
-      <div class="bg-img ${project.bgClass}"></div>
+      <picture>
+        <source type="image/webp" data-srcset="${project.webPBgImg}">
+        <source type="image/${bgImgExt === 'jpg' ? 'jpeg' : bgImgExt}" data-srcset="${project.bgImg}">
+        <img class="bg-img lazyload" data-src="${project.bgImg}" width="240" height="264" alt="${project.title} thumbnail">
+      </picture>
       <div class="project-info">
-        <div class="logo text-right ${project.company}-logo">
-          <img src="${project.logo}" width="${project.logoWidth}" height="${project.logoHeight}" alt="${project.company} logo" />
+        <div class="logo text-right ${project.company}-logo" class="lazy-load">
+          <img data-src="${project.logo}" class="lazyload" width="${project.logoWidth}" height="${project.logoHeight}" alt="${project.company} logo" />
         </div>
         <h2 class="project-title">
           ${project.title} 
@@ -338,15 +349,33 @@ $(function () {
 
   $('#project-list').html(projectsHTML);
 
-  // Run of page load to trigger preloader
-  $(window).on('load', function () {
-    $('.brand-container').addClass('loaded');
-    $('.preloader').addClass('loaded');
-    setTimeout(() => {
-      $('body').addClass('loaded');
-    }, 1000);
-  });
-
   // Trigger scroll initially in case user is not at the top of the page
   $(window).trigger('scroll');
+});
+
+function loadScript(src, attributes) {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = src;
+
+  if (attributes) {
+    attributes.forEach(attribute => {
+      script.setAttribute(attribute.attributeName, attribute.attributeValue || '');
+    });
+  }
+  document.body.appendChild(script);
+}
+
+// Run of page load to trigger preloader
+$(window).on('load', function () {
+  $('.brand-container').addClass('loaded');
+  $('.preloader').addClass('loaded');
+
+  loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAMzb5C3tCHtOBpxkraWbvYKAUQZjief5s&callback=initMap&libraries=&v=weekly', [{ attributeName: 'defer', attributeValue: 'defer' }])
+  loadScript('https://use.fontawesome.com/releases/v5.15.1/js/all.js', [{ attributeName: 'data-auto-replace-svg', attributeValue: 'nest'}])
+  loadScript('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js', [{ attributeName: 'integrity', attributeValue: 'sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU='}, { attributeName: 'crossorigin', attributeValue: 'anonymous'}])
+
+  setTimeout(() => {
+    $('body').addClass('loaded');
+  }, 1000);
 });

@@ -19,9 +19,8 @@
   position: relative;
 }
 
-.col > .bg-img {
-  background-size: cover;
-  background-position: center;
+.col .bg-img {
+  object-fit: cover;
   height: 100%;
   -webkit-transition: all .5s;
   -moz-transition: all .5s;
@@ -49,14 +48,6 @@
 .project-info > .logo {
   width: 100%;
   height: 100%;
-}
-
-.col:hover > .project-info,
-.col:focus > .project-info {
-  visibility: visible;
-  backdrop-filter: blur(2px);
-  background-color: rgba(0,0,0,0.6);
-  opacity: 1;
 }
 
 .project-info > .tags {
@@ -105,43 +96,23 @@
   text-align: justify;
 }
 
-.col:hover > .bg-img,
-.col:focus > .bg-img {
-  -ms-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -webkit-transform: scale(1.05);
-  -o-transform: scale(1.05);
-  transform: scale(1.05);
-}
+@media screen and (min-width: 769px) {
+  .col:hover > .project-info,
+  .col:focus > .project-info {
+    visibility: visible;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0,0,0,0.6);
+    opacity: 1;
+  }
 
-.allegiant-bg {
-  background-image: url('../img/allegiant-thumbnail.jpg');
-  background-image: url('../img/allegiant-thumbnail.webp');
-}
-
-.chapel-bg {
-  background-image: url('../img/chapel-thumbnail.png');
-  background-image: url('../img/chapel-thumbnail.webp');
-}
-
-.trop-bg {
-  background-image: url('../img/trop-thumbnail.png');
-  background-image: url('../img/trop-thumbnail.webp');
-}
-
-.olas-bg {
-  background-image: url('../img/olas-thumbnail.png');
-  background-image: url('../img/olas-thumbnail.webp');
-}
-
-.vending-machine-bg {
-  background-image: url('../img/vending-machine-img.jpg');
-  background-image: url('../img/vending-machine-img.webp');
-}
-
-.phone-jammer-bg {
-  background-image: url('../img/jammer-thumbnail.jpg');
-  background-image: url('../img/jammer-thumbnail.webp');
+  .col:hover .bg-img,
+  .col:focus .bg-img {
+    -ms-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -155,13 +126,13 @@
     width: 100%;
   }
 
-  .col > .bg-img {
+  .col .bg-img {
     position: relative;
     height: 15rem;
   }
   
   .col > .project-info {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     visibility: visible;
     opacity: 1;
     position: relative;
