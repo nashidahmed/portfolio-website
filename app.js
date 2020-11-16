@@ -128,7 +128,7 @@ $(function() {
     title: 'Tropicana LV Weddings',
     subtitle: 'Chapel of the Flowers',
     tags: 'AngularJS / GulpJS / .NET WebAPI / SQL / Html / Css',
-    description: 'Tropicana LV Weddings is an E-commerce website for wedding bookings, which offers several unique indoor and outdoor chapels at this famous Las Vegas resort.'
+    description: 'Tropicana LV Weddings is an E-commerce website for wedding bookings, which offers several unique indoor and outdoor chapels at the Tropicana Las Vegas resort.'
   }, {
     company: 'pnw',
     bgClass: 'olas-bg',
