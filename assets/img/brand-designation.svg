@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="165"
+   height="38"
+   viewBox="0 0 43.656251 10.054167"
+   version="1.1"
+   id="svg8"
+   inkscape:export-filename="C:\Users\Nashid\Documents\portfolio-website\assets\img\brand-designation.png"
+   inkscape:export-xdpi="98.410004"
+   inkscape:export-ydpi="98.410004"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="brand-designation.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="134.27572"
+     inkscape:cy="129.46429"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       id="text839"
+       y="5.0339389"
+       x="0.95865774"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.21565px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial Bold';letter-spacing:0.498855px;word-spacing:0.467677px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.138994"
+       xml:space="preserve"
+       transform="scale(0.98302753,1.0172655)"
+       inkscape:export-xdpi="98.410004"
+       inkscape:export-ydpi="98.410004"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.21566px;font-family:Arial;-inkscape-font-specification:'Arial, Bold';font-variant-ligatures:normal;font-variant-caps:small-caps;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.138994"
+         y="5.0339389"
+         x="0.95865774"
+         id="tspan837"
+         sodipodi:role="line">Nashid Ahmed</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.1401px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial Bold';letter-spacing:0.155544px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.116282"
+       x="1.1895158"
+       y="8.4520807"
+       id="text843"
+       transform="scale(0.96726739,1.0338403)"
+       inkscape:export-xdpi="98.410004"
+       inkscape:export-ydpi="98.410004"><tspan
+         sodipodi:role="line"
+         id="tspan841"
+         x="1.1895158"
+         y="8.4520807"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.1401px;font-family:Arial;-inkscape-font-specification:'Arial Bold';stroke-width:0.116282">FULL STACK DEVELOPER</tspan></text>
+  </g>
+</svg>

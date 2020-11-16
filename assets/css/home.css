@@ -47,8 +47,26 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
-.intro-wrapper .designation {
-  font-size: 2rem;
+@media screen and (orientation: landscape) and (max-height: 576px) and (max-width: 992px) {
+  .intro-wrapper .designation {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-height: 576px) and (max-width: 768px) {
+  .intro-wrapper .designation {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-height: 360px) and (max-width: 576px) {
+  .intro-wrapper .name {
+    margin-bottom: 0.25rem;
+  }
+
+  .intro-wrapper .brief-desc {
+    margin-top: 0.25rem;
+  }
 }
 
 @media screen and (max-width: 768px) {

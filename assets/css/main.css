@@ -1,48 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Pathway+Gothic+One');
-@import './animations.css';
-@import './preloader.css';
-@import './header.css';
-@import './home.css';
-@import './about.css';
-@import './work.css';
-@import './projects.css';
-@import './contact.css';
-
-:root {
-  --header-height: 5rem;
-}
-
-@media screen and (max-width: 768px) {
-  :root {
-    --header-height: 4rem;
-  }
-}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow: hidden;
-  scrollbar-width: 0.4rem;
-  scrollbar-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.2);
-}
-
-body.loaded {
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-
-body::-webkit-scrollbar {
-  width: 0.4rem;               /* width of the entire scrollbar */
-}
-body::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);        /* color of the tracking area */
-  opacity: 0;
-}
-body::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.4);    /* color of the scroll thumb */
-  border-radius: 0.5rem;       /* roundness of the scroll thumb */
-}
-
 .scroll-to-top {
   position: fixed;
   right: 1.5rem;
@@ -73,25 +28,12 @@ a {
   text-decoration: none;
 }
 
-.stretch-it {
-  white-space: nowrap;
-}
-
 .text-right {
   text-align: right;
 }
 
 .text-center {
   text-align: center;
-}
-
-.font-weight-light {
-  font-weight: lighter;
-}
-
-.my-0 {
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
 .about, .work {
@@ -203,7 +145,7 @@ hr {
   margin: 0 1rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   a.fancy-link {
     cursor: pointer;
     position: relative;
@@ -251,10 +193,16 @@ hr {
 @media screen and (max-width: 567px) {
   .fancy-button {
     padding: 0.6rem 1.2rem;
-    font-size: 0.7rem;
+    font-size: 0.875rem;
   }
 
   .footer-info {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .fancy-button {
+    font-size: 0.75rem;
   }
 }
