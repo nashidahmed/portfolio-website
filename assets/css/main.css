@@ -145,7 +145,7 @@ hr {
   margin: 0 1rem;
 }
 
-@media (hover: hover) {
+@media screen and (min-width: 769px) {
   a.fancy-link {
     cursor: pointer;
     position: relative;
@@ -174,26 +174,24 @@ hr {
   }
 }
 
-@media (hover: none) {
-  a.fancy-link {
-    font-weight: bold;
-    color: #464648;
-  }
-}
-
 @media screen and (max-width: 992px) {
   .container {
     max-width: 720px;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .section-title {
     font-size: 2rem;
   }
 
   hr {
     margin: 1rem 2rem;
+  }
+  
+  a.fancy-link {
+    font-weight: bold;
+    color: #464648;
   }
 }
 

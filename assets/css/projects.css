@@ -123,13 +123,18 @@
   }
 }
 
-@media (hover: none) {
-  .col .bg-img {
-    position: relative;
-    height: 18rem;
+@media screen and (max-width: 768px) {
+  .col {
+    width: 100%;
   }
-  
+
+  .col .bg-img {
+    height: 30rem;
+    position: relative;
+  }
+
   .col > .project-info {
+    font-size: 0.875rem;
     visibility: visible;
     opacity: 1;
     position: relative;
@@ -139,24 +144,6 @@
 
   .nitc-logo > img, .pnw-logo > img {
     filter: invert(1);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .col {
-    width: 100%;
-  }
-
-  .col .bg-img {
-    height: 30rem;
-  }
-
-  .col > .project-info {
-    font-size: 0.875rem;
-  }
-
-  .project-info > .logo {
-    display: none;
   }
 
   .projects {
@@ -173,4 +160,9 @@
   .col .bg-img {
     height: 12.5rem;
   }
+
+  .project-info > .logo {
+    display: none;
+  }
+
 }
