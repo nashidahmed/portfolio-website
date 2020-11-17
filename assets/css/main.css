@@ -145,7 +145,7 @@ hr {
   margin: 0 1rem;
 }
 
-@media screen and (min-width: 769px) {
+@media (hover: hover) {
   a.fancy-link {
     cursor: pointer;
     position: relative;
@@ -171,6 +171,13 @@ hr {
     bottom: -0.125rem;
     width: calc(100% + 0.25rem);
     height: calc(100% + 0.25rem);
+  }
+}
+
+@media (hover: none) {
+  a.fancy-link {
+    font-weight: bold;
+    color: #464648;
   }
 }
 
