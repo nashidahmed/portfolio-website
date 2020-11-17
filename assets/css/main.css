@@ -180,13 +180,18 @@ hr {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .section-title {
     font-size: 2rem;
   }
 
   hr {
     margin: 1rem 2rem;
+  }
+  
+  a.fancy-link {
+    font-weight: bold;
+    color: #464648;
   }
 }
 

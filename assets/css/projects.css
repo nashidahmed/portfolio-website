@@ -17,6 +17,8 @@
   margin-bottom: 2rem;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .col .bg-img {
@@ -127,10 +129,10 @@
   }
 
   .col .bg-img {
+    height: 30rem;
     position: relative;
-    height: 15rem;
   }
-  
+
   .col > .project-info {
     font-size: 0.875rem;
     visibility: visible;
@@ -140,8 +142,8 @@
     background-color: rgba(0,0,0,0.15);
   }
 
-  .project-info > .logo {
-    display: none;
+  .nitc-logo > img, .pnw-logo > img {
+    filter: invert(1);
   }
 
   .projects {
@@ -151,10 +153,16 @@
   .row {
     margin: 2rem 3rem 0;
   }
+
 }
 
 @media screen and (max-width: 576px) {
-  .col {
-    min-height: 12rem;
+  .col .bg-img {
+    height: 12.5rem;
   }
+
+  .project-info > .logo {
+    display: none;
+  }
+
 }

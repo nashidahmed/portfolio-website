@@ -128,6 +128,11 @@ function jsModulesCopy() {
     .pipe(dest(DEST_JS));
 }
 
+function copyFiles() {
+  return src('googlec6cb74579ce2fc25.html')
+    .pipe(dest(DEST_HTML))
+}
+
 function pdfCopy() {
   return src(SRC_PDF)
     .pipe(dest(DEST_PDF));
@@ -145,7 +150,7 @@ function watchFiles() {
 }
 
 const clean = parallel(jsClean, cssClean, imgClean);
-const build = parallel(htmlBuild, jsBuild, cssBuild, images, jsModulesCopy, pdfCopy);
+const build = parallel(htmlBuild, jsBuild, cssBuild, images, jsModulesCopy, pdfCopy, copyFiles);
 const watcher = parallel(watchFiles, browserSync);
 
 // Export tasks

@@ -134,7 +134,7 @@ $(function () {
     title: 'Little Chapel',
     subtitle: 'Chapel of the Flowers',
     tags: 'AngularJS / .NET MVC / SQL / Html / Css / IIS',
-    description: 'Little Chapel is an E-commerce website for wedding bookings. Chapel of the Flowers features three unique chapels on its Las Vegas Strip grounds. Their three on-site chapel options include a traditional Victorian Chapel, the Tuscan-inspired La Capella Chapel, and the chic, modern Magnolia Chapel.'
+    description: 'Little Chapel is an E-commerce website for wedding bookings. Chapel of the Flowers features three unique chapels on its Las Vegas Strip grounds.'
   }, {
     company: 'tropicana',
     bgImg: 'img/trop-thumbnail.png',
@@ -146,7 +146,7 @@ $(function () {
     title: 'Tropicana LV Weddings',
     subtitle: 'Chapel of the Flowers',
     tags: 'AngularJS / GulpJS / .NET WebAPI / SQL / Html / Css',
-    description: 'Tropicana LV Weddings is an E-commerce website for wedding bookings, which offers several unique indoor and outdoor chapels at this famous Las Vegas resort.'
+    description: 'Tropicana LV Weddings is an E-commerce website for wedding bookings, which offers several unique indoor and outdoor chapels at the Tropicana Las Vegas resort.'
   }, {
     company: 'pnw',
     bgImg: 'img/olas-thumbnail.png',
@@ -301,14 +301,14 @@ $(function () {
         <h2 class="timeline-content-title">${work.role}</h2>
         ${work.isCompany ? `<h3 class="timeline-content-company">
           COMPANY -
-          <a class="fancy-link" target="_blank" rel="noreferrer" href="${work.link}">${work.name}</a>
+          <a class="fancy-link" target="_blank" rel="noreferrer" href="${work.link}">${work.name} <i class="fas fa-external-link-alt"></i></a>
         </h3>
         <h4 class="timeline-content-client">
           CLIENT -
-          <a class="fancy-link" target="_blank" rel="noreferrer" href="${work.clientLink}">${work.client}</a>
+          <a class="fancy-link" target="_blank" rel="noreferrer" href="${work.clientLink}">${work.client} <i class="fas fa-external-link-alt"></i></a>
         </h4>` : `<h3 class="timeline-content-company">
           UNIVERSITY -
-          <a class="fancy-link" target="_blank" rel="noreferrer" href="${work.link}">${work.name}</a>
+          <a class="fancy-link" target="_blank" rel="noreferrer" href="${work.link}">${work.name} <i class="fas fa-external-link-alt"></i></a>
         </h3>`}
         <p class="timeline-content-desc">${work.description}</p>
       </div>
