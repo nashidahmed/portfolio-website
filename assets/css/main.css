@@ -189,7 +189,7 @@ hr {
     margin: 1rem 2rem;
   }
   
-  a.fancy-link {
+  div:not(#nav-links) a.fancy-link {
     font-weight: bold;
     color: #464648;
   }

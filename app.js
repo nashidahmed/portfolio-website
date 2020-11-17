@@ -379,3 +379,10 @@ $(window).on('load', function () {
     $('body').addClass('loaded');
   }, 1000);
 });
+
+$(document).on('click', function(event) {
+  if (!$(event.target).closest('header').length) {
+    $('#nav-icon').removeClass('open');
+    $('header').removeClass('open');
+  }
+});
