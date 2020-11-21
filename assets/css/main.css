@@ -101,6 +101,9 @@ a {
   color: black;
 }
 
+.social-media a {
+  display: inline-block;
+}
 
 .footer-info {
   display: flex;
@@ -115,7 +118,7 @@ a {
 }
 
 .footer a {
-  display: block;
+  display: inline-block;
   margin-bottom: 0.25rem;
   color: black;
 }
