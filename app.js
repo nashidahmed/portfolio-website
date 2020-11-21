@@ -249,15 +249,24 @@ $(function () {
 
   $(window).on('scroll', setActiveNav);
 
+  function resetAnimations() {
+    const animated = $('.animated');
+
+    animated.each(function() {
+      const animatable = $(this);
+      animatable.removeClass('animated').addClass('animatable');
+    });
+  }
+
   // Trigger scroll animatons
   function scrollAnimations() {
     // Calc current offset and get all animatables
     const bottomOffset = $(window).scrollTop() + $(window).height();
     const animatables = $('.animatable');
 
-    // Unbind scroll handler if we have no animatables
-    if (animatables.length === 0) {
-      $(window).off('scroll', scrollAnimations);
+    // Reset animations if user scrolls to top of the page
+    if (!$(window).scrollTop()) {
+      resetAnimations();
     }
 
     // Check all animatables and animate them if necessary
@@ -371,7 +380,6 @@ $(window).on('load', function () {
   $('.brand-container').addClass('loaded');
   $('.preloader').addClass('loaded');
 
-  loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAMzb5C3tCHtOBpxkraWbvYKAUQZjief5s&callback=initMap&libraries=&v=weekly', [{ attributeName: 'defer', attributeValue: 'defer' }])
   loadScript('https://use.fontawesome.com/releases/v5.15.1/js/all.js', [{ attributeName: 'data-auto-replace-svg', attributeValue: 'nest'}])
   loadScript('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js', [{ attributeName: 'integrity', attributeValue: 'sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU='}, { attributeName: 'crossorigin', attributeValue: 'anonymous'}])
 
