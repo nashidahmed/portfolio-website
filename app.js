@@ -163,7 +163,7 @@ $(function () {
     company: 'nitc',
     bgImg: 'img/vending-machine-img.jpg',
     webPBgImg: 'img/vending-machine-img.webp',
-    link: 'pdf/RFID vending machine thesis.pdf',
+    link: 'pdf/RFID_vending_machine_thesis.pdf',
     logo: 'img/nitc-logo.png',
     logoWidth: 80,
     logoHeight: 80 / 0.84,
