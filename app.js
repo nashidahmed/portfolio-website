@@ -175,10 +175,11 @@ $(function () {
     company: 'nitc',
     bgImg: 'img/jammer-thumbnail.jpg',
     webPBgImg: 'img/jammer-thumbnail.webp',
+    link: 'pdf/phone_jammer_and_detector.pdf',
     logo: 'img/nitc-logo.png',
     logoWidth: 80,
     logoHeight: 80 / 0.84,
-    title: 'Mobile Phone Jammer',
+    title: 'Phone Jammer and Detector',
     subtitle: 'Minor Project | National Institute of Technology, Calicut',
     tags: 'Electronics',
     description: 'Created a cost-effective mobile phone detector and jammer which could extend over an entire room intended to be used in examination halls.'
