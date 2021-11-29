@@ -69,14 +69,15 @@ $(function () {
   }];
 
   const works = [{
-    timeline: '2019 - NOW',
+    timeline: '2019 - 2021',
     role: 'DEVELOPMENT LEAD',
     isCompany: true,
     name: 'PEOPLE10 TECHNOSOFT PVT. LTD.',
     link: 'https://www.people10.com/',
     client: 'ALLEGIANT AIRLINES',
     clientLink: 'https://www.allegiantair.com/',
-    description: `• Design and maintenance of Allegiant Air's Flight Movement Management (FMM), an Angular web app crucial to the Operational Control Centre (OCC) in order to track, maintain and modify flights.<br />
+    description: `• Maintenance of Allegiant Air's Station's Flight Following (SFF), a role-based React web app for Stations users to consolidate and update flight data.
+    • Design and maintenance of Allegiant Air's Flight Movement Management (FMM), an Angular web app crucial to the Operational Control Centre (OCC) in order to track, maintain and modify flights.<br />
     • Large-scale project with over 90% unit test coverage and secured using Fortify.<br />
     • Improved UI performance by ~120% by implementing server-side rendering, lazy loading of front end modules, and virtual scrolling.<br />
     • Implemented an innovative solution to reduce the build time by ~650% by significantly improving unit test performance.`
@@ -114,14 +115,13 @@ $(function () {
   const projects = [{
     company: 'allegiant',
     bgImg: 'img/alegiant-thumbnail.jpg',
-    webPBgImg: 'img/allegiant-thumbnail.webp',
-    link: 'https://www.allegiantair.com/',
+    // webPBgImg: 'img/allegiant-thumbnail.webp',
     logo: 'img/allegiant-logo.svg',
     logoWidth: 96,
     logoHeight: 96 / 3,
     title: 'Flight Movement Management',
     subtitle: 'Allegiant Airlines',
-    tags: 'Angular / RxJS / Html / Css / Karma / Jasmine / Cucumber',
+    tags: 'Angular / RxJS / HTML / CSS / Karma / Jasmine / Cucumber',
     description: 'Flight Movement Management (FMM) is a web app crucial to the Operational Control Centre (OCC) in order to track, maintain, and modify flights.'
   }, {
     company: 'chapel',
@@ -133,8 +133,19 @@ $(function () {
     logoHeight: 96 * 0.75,
     title: 'Little Chapel',
     subtitle: 'Chapel of the Flowers',
-    tags: 'AngularJS / .NET MVC / SQL / Html / Css / IIS',
+    tags: 'AngularJS / .NET MVC / SQL / HTML / CSS / IIS',
     description: 'Little Chapel is an E-commerce website for wedding bookings. Chapel of the Flowers features three unique chapels on its Las Vegas Strip grounds.'
+  }, {
+    company: 'ea',
+    bgImg: 'img/ea-thumbnail.png',
+    webPBgImg: 'img/ea-thumbnail.webp',
+    logo: 'img/ea-logo.png',
+    logoWidth: 96,
+    logoHeight: 96 * 0.75,
+    title: 'Guest Booking',
+    subtitle: 'Ever After',
+    tags: 'Angular / .NET WebAPI / SQL / HTML / CSS / IIS',
+    description: 'Guest booking is a hotel booking website exclusive to guests attending destination weddings booked by couples through Ever After'
   }, {
     company: 'tropicana',
     bgImg: 'img/trop-thumbnail.png',
@@ -145,7 +156,7 @@ $(function () {
     logoHeight: 96 / 3,
     title: 'Tropicana LV Weddings',
     subtitle: 'Chapel of the Flowers',
-    tags: 'AngularJS / GulpJS / .NET WebAPI / SQL / Html / Css',
+    tags: 'AngularJS / GulpJS / .NET WebAPI / SQL / HTML / CSS',
     description: 'Tropicana LV Weddings is an E-commerce website for wedding bookings, which offers several unique indoor and outdoor chapels at the Tropicana Las Vegas resort.'
   }, {
     company: 'pnw',
@@ -157,7 +168,7 @@ $(function () {
     logoHeight: 120 / 4.7,
     title: 'Online Job Application System',
     subtitle: 'PNW BOCES',
-    tags: 'AngularJS / GulpJS / .NET WebAPI / SQL / Html / Css',
+    tags: 'AngularJS / GulpJS / .NET WebAPI / SQL / HTML / CSS',
     description: 'The Online Application System for K-12 Education (OLAS) is a cloud-based job application system serving schools & districts throughout New York State and surrounding areas.'
   }, {
     company: 'nitc',
