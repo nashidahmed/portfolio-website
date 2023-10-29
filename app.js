@@ -100,6 +100,28 @@ $(function () {
 
   const works = [
     {
+      timeline: "2023 - Present",
+      role: "COMPUTER SCIENCE, M.Sc.",
+      isCompany: false,
+      name: "NEW JERSEY INSTITUTE OF TECHNOLOGY",
+      grade: "GPA - 4.0",
+      link: "https://www.njit.edu/",
+      description: [
+        "Teaching Assistant for CS 331 - Database System Design and Management.",
+        "Winner of the ACM Battlesnake hackathon.",
+      ],
+    },
+    {
+      timeline: "2021 - Present",
+      role: "FULL STACK WEB3 DEVELOPER",
+      name: "SELF-EMPLOYED",
+      description: [
+        "Collaborating on a decentralized crowdfunding dApp for borderless donations using selected stablecoins and smart contracts.",
+        "Implementing The Graph for blockchain data querying and Infura for smart contract communication.",
+        "Explored cross-chain communication with Axelar network and decentralized cloud options like Akash Network.",
+      ],
+    },
+    {
       timeline: "2019 - 2021",
       role: "DEVELOPMENT LEAD",
       isCompany: true,
@@ -107,10 +129,12 @@ $(function () {
       link: "https://www.people10.com/",
       client: ["ALLEGIANT AIRLINES"],
       clientLink: ["https://www.allegiantair.com/"],
-      description: `• Orchestrated design and maintenance of Allegiant Air's Flight Movement Management (FMM), a vital Angular web app supporting the Operational Control Centre (OCC) in flight tracking and management.<br />
-    • Attained over 90% unit test coverage and implemented robust security measures, including Fortify.<br />
-    • Drastically improved user experience with a ~120% boost in UI performance, accomplished through server-side rendering, lazy loading, and virtual scrolling.<br />
-    • Revolutionized development workflows, reducing build times by a remarkable ~650% through innovative unit test enhancements.`,
+      description: [
+        "Orchestrated design and maintenance of Allegiant Air's Flight Movement Management (FMM), a vital Angular web app supporting the Operational Control Centre (OCC) in flight tracking and management.",
+        "Attained over 90% unit test coverage and implemented robust security measures, including Fortify.",
+        "Drastically improved user experience with a ~120% boost in UI performance, accomplished through server-side rendering, lazy loading, and virtual scrolling.",
+        "Revolutionized development workflows, reducing build times by a remarkable ~650% through innovative unit test enhancements.",
+      ],
     },
     {
       timeline: "2018 - 2019",
@@ -120,9 +144,11 @@ $(function () {
       link: "https://www.people10.com/",
       client: ["CHAPEL OF THE FLOWERS"],
       clientLink: ["https://www.littlechapel.com/"],
-      description: `• Led full-stack migration of a closed user group hotel booking website for wedding guests, moving from .NET WebAPI, CodeIgniter, and jQuery to .NET WebAPI 2.0 and Angular 8 in just three months, exceeding initial estimates.<br />
-    • Innovatively introduced and crafted the frontend for split payment functionality for users to divide transactions across multiple cards, enhancing flexibility.<br />
-    • Implemented and designed the frontend for scheduled payments (EMI) and incorporated a secure saved card feature, ensuring full compliance with PCI standards. This not only improved the payment experience but also bolstered data security.`,
+      description: [
+        "Led full-stack migration of a closed user group hotel booking website for wedding guests, moving from .NET WebAPI, CodeIgniter, and jQuery to .NET WebAPI 2.0 and Angular 8 in just three months, exceeding initial estimates.",
+        "Innovatively introduced and crafted the frontend for split payment functionality for users to divide transactions across multiple cards, enhancing flexibility.",
+        "Implemented and designed the frontend for scheduled payments (EMI) and incorporated a secure saved card feature, ensuring full compliance with PCI standards. This not only improved the payment experience but also bolstered data security.",
+      ],
     },
     {
       timeline: "2016 - 2018",
@@ -132,17 +158,22 @@ $(function () {
       link: "https://www.people10.com/",
       client: ["PNW BOCES", "OLAS"],
       clientLink: ["https://www.pnwboces.org/", "https://www.olasjobs.org/"],
-      description: `• Managed 11 domains for Chapel of the Flowers, overseeing their maintenance and operation. Leveraged a diverse tech stack, including AngularJS, Angular 2+, .NET MVC, .NET WebAPI, PHP, and MySQL.<br />
-    • Spearheaded the development of <a class='fancy-link' target='_blank' rel='noreferrer' href='https://www.olasjobs.org/'>OLAS <i class='fas fa-external-link-alt'></i></a>, a dynamic online job application system tailored for educators. The project was powered by the seamless synergy of AngularJS and .NET WebAPI, providing an efficient and user-friendly solution for educators and districts alike.`,
+      description: [
+        "Managed 11 domains for Chapel of the Flowers, overseeing their maintenance and operation. Leveraged a diverse tech stack, including AngularJS, Angular 2+, .NET MVC, .NET WebAPI, PHP, and MySQL.",
+        "Spearheaded the development of <a class='fancy-link' target='_blank' rel='noreferrer' href='https://www.olasjobs.org/'>OLAS <i class='fas fa-external-link-alt'></i></a>, a dynamic online job application system tailored for educators. The project was powered by the seamless synergy of AngularJS and .NET WebAPI, providing an efficient and user-friendly solution for educators and districts alike.",
+      ],
     },
     {
       timeline: "2012 - 2016",
-      role: "ELECTRICAL & ELECTRONICS ENG.",
+      role: "ELECTRICAL & ELECTRONICS ENG., B.Tech.",
       isCompany: false,
       name: "NATIONAL INSTITUTE OF TECHNOLOGY, CALICUT",
+      grade: "Grade - First Class",
       link: "http://www.nitc.ac.in/",
-      description: `• Served as the Senior Executive of the Media Committee for Tathva, the technical festival, and Ragam, the cultural festival, both hosted at the National Institute of Technology, Calicut.<br />
-    • Competed in college football and table tennis.`,
+      description: [
+        "Served as the Senior Executive of the Media Committee for Tathva, the technical festival, and Ragam, the cultural festival, both hosted at the National Institute of Technology, Calicut.",
+        "Competed in college football and table tennis.",
+      ],
     },
   ]
 
@@ -376,15 +407,24 @@ $(function () {
 
   $(window).on("scroll", setActiveNav)
 
+  function resetAnimations() {
+    const animated = $(".animated")
+
+    animated.each(function () {
+      const animatable = $(this)
+      animatable.removeClass("animated").addClass("animatable")
+    })
+  }
+
   // Trigger scroll animatons
   function scrollAnimations() {
     // Calc current offset and get all animatables
     const bottomOffset = $(window).scrollTop() + $(window).height()
     const animatables = $(".animatable")
 
-    // Unbind scroll handler if we have no animatables
-    if (animatables.length === 0) {
-      $(window).off("scroll", scrollAnimations)
+    // Reset animations if user scrolls to top of the page
+    if (!$(window).scrollTop()) {
+      resetAnimations()
     }
 
     // Check all animatables and animate them if necessary
@@ -426,33 +466,45 @@ $(function () {
   $("#skills").html(skillsHTML)
 
   $.each(works, function (index, work) {
+    let descHtml = ""
     workHTML += `<div class="timeline-item animatable fadeInUp" data-text="${
       work.timeline
     }">
       <div class="timeline-content">
         <h2 class="timeline-content-title">${work.role}</h2>
         ${
-          work.isCompany
-            ? `<h3 class="timeline-content-company">
-          COMPANY -
-          <a class="fancy-link" target="_blank" rel="noreferrer" href="${
-            work.link
-          }">${work.name} <i class="fas fa-external-link-alt"></i></a>
-        </h3>
-        <h4 class="timeline-content-client">
-          ${work.client.length > 1 ? "CLIENTS" : "CLIENT"} - ${work.client
-                .map(
-                  (client, index) =>
-                    `<a class="fancy-link" target="_blank" rel="noreferrer" href="${work.clientLink[index]}">${client} <i class="fas fa-external-link-alt"></i></a>`
-                )
-                .join(", ")}
-        </h4>`
+          work.isCompany !== undefined
+            ? work.isCompany
+              ? `<h3 class="timeline-content-company">
+            COMPANY -
+            <a class="fancy-link" target="_blank" rel="noreferrer" href="${
+              work.link
+            }">${work.name} <i class="fas fa-external-link-alt"></i></a>
+          </h3>
+          <h4 class="timeline-content-client">
+            ${work.client.length > 1 ? "CLIENTS" : "CLIENT"} - ${work.client
+                  .map(
+                    (client, index) =>
+                      `<a class="fancy-link" target="_blank" rel="noreferrer" href="${work.clientLink[index]}">${client} <i class="fas fa-external-link-alt"></i></a>`
+                  )
+                  .join(", ")}
+          </h4>`
+              : `<h3 class="timeline-content-company">
+            UNIVERSITY -
+            <a class="fancy-link" target="_blank" rel="noreferrer" href="${work.link}">${work.name} <i class="fas fa-external-link-alt"></i></a>
+          </h3>`
             : `<h3 class="timeline-content-company">
-          UNIVERSITY -
-          <a class="fancy-link" target="_blank" rel="noreferrer" href="${work.link}">${work.name} <i class="fas fa-external-link-alt"></i></a>
-        </h3>`
+            ${work.name}
+          </h3>`
         }
-        <p class="timeline-content-desc">${work.description}</p>
+        ${
+          work.isCompany === false
+            ? `<h4 class="timeline-content-client">${work.grade}</h4>`
+            : ""
+        }
+        <ul class="timeline-content-desc">${work.description
+          .map((desc) => `<li>${desc}</li>`)
+          .join("")}</ul>
       </div>
     </div>`
   })
@@ -606,4 +658,11 @@ $(window).on("load", function () {
   setTimeout(() => {
     $("body").addClass("loaded")
   }, 1000)
+})
+
+$(document).on("click", function (event) {
+  if (!$(event.target).closest("header").length) {
+    $("#nav-icon").removeClass("open")
+    $("header").removeClass("open")
+  }
 })

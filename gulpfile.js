@@ -129,7 +129,7 @@ function jsModulesCopy() {
 }
 
 function copyFiles() {
-  return src('googlec6cb74579ce2fc25.html')
+  return src(['googlec6cb74579ce2fc25.html', 'robots.txt', 'sitemap.xml'])
     .pipe(dest(DEST_HTML))
 }
 

@@ -101,6 +101,9 @@ a {
   color: black;
 }
 
+.social-media a {
+  display: inline-block;
+}
 
 .footer-info {
   display: flex;
@@ -115,7 +118,7 @@ a {
 }
 
 .footer a {
-  display: block;
+  display: inline-block;
   margin-bottom: 0.25rem;
   color: black;
 }
@@ -189,7 +192,7 @@ hr {
     margin: 1rem 2rem;
   }
   
-  a.fancy-link {
+  div:not(#nav-links) a.fancy-link {
     font-weight: bold;
     color: #464648;
   }
