@@ -466,7 +466,6 @@ $(function () {
   $("#skills").html(skillsHTML)
 
   $.each(works, function (index, work) {
-    let descHtml = ""
     workHTML += `<div class="timeline-item animatable fadeInUp" data-text="${
       work.timeline
     }">
@@ -640,10 +639,6 @@ $(window).on("load", function () {
   $(".brand-container").addClass("loaded")
   $(".preloader").addClass("loaded")
 
-  loadScript(
-    "https://maps.googleapis.com/maps/api/js?key=AIzaSyAMzb5C3tCHtOBpxkraWbvYKAUQZjief5s&callback=initMap&libraries=&v=weekly",
-    [{ attributeName: "defer", attributeValue: "defer" }]
-  )
   loadScript("https://use.fontawesome.com/releases/v5.15.1/js/all.js", [
     { attributeName: "data-auto-replace-svg", attributeValue: "nest" },
   ])

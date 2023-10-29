@@ -8,22 +8,16 @@
   font-size: 1.15rem;
 }
 
-#map {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background-color: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .contact-map {
-  min-height: 30rem;
   margin: 2rem 3rem 0;
   flex: 1;
-  display: flex;
-  flex-direction: column;
+}
+
+.contact-map img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .contact-info {
@@ -114,9 +108,7 @@ textarea {
 
   .contact-map {
     margin: 2rem auto 0;
-    width: 100%;
-    min-height: 20rem;
-    height: 50vh;
+    width: 80%;
   }
 
   .address-info {
