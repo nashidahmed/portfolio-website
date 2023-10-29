@@ -101,7 +101,7 @@ $(function () {
   const works = [
     {
       timeline: "2023 - Present",
-      role: "COMPUTER SCIENCE, M.Sc.",
+      role: "COMPUTER SCIENCE, M.S.",
       isCompany: false,
       name: "NEW JERSEY INSTITUTE OF TECHNOLOGY",
       grade: "GPA - 4.0",

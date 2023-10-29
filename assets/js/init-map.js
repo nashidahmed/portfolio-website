@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 // const bangalorePosition = { lat: 12.993, lng: 77.728 }
 // const riyadhPosition = { lat: 24.708, lng: 46.679 }
-const newarkPosition = { lat: 40.742, lng: 74.18 }
+const newarkPosition = { lat: 40.742, lng: -74.181 }
 
 function initMap() {
   const position = newarkPosition
