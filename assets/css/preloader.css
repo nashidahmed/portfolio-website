@@ -97,7 +97,7 @@ body.loaded .preloader {
   height: 100%;
   width: 100%;
   backdrop-filter: blur(0.25rem);
-  background-color: rgba(0,0,0, 0.75);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .preloader-content .loader-text {
