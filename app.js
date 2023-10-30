@@ -639,9 +639,10 @@ $(window).on("load", function () {
   $(".brand-container").addClass("loaded")
   $(".preloader").addClass("loaded")
 
-  loadScript("https://use.fontawesome.com/releases/v5.15.1/js/all.js", [
-    { attributeName: "data-auto-replace-svg", attributeValue: "nest" },
-  ])
+  loadScript(
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js",
+    [{ attributeName: "data-auto-replace-svg", attributeValue: "nest" }]
+  )
   loadScript("https://code.jquery.com/ui/1.12.1/jquery-ui.min.js", [
     {
       attributeName: "integrity",
