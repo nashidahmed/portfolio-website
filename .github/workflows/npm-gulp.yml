@@ -28,8 +28,8 @@ jobs:
       - name: Build with Gulp
         run: npx gulp
 
-      - name: Move dist folder to the root
-        run: mv dist $GITHUB_WORKSPACE/dist
+      - name: Copy dist contents to root
+        run: cp -r dist/* $GITHUB_WORKSPACE/
 
   deploy:
     runs-on: ubuntu-latest
