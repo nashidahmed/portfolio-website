@@ -11,8 +11,8 @@
 .home {
   position: relative;
   height: calc(100vh + 5rem);
-  background: url('../img/home-img.png') no-repeat;
-  background: url('../img/home-img.webp') no-repeat;
+  background: url("../img/home-img.png") no-repeat;
+  background: url("../img/home-img.webp") no-repeat;
   background-size: contain;
   background-position: top 0 right -10rem;
 }
@@ -32,7 +32,7 @@
 .intro-wrapper .brief-desc {
   font-size: 1.25rem;
   font-weight: bold;
-  color: rgba(0,0,0,0.5);
+  color: rgba(0, 0, 0, 0.5);
   margin-bottom: 2rem;
 }
 
@@ -44,7 +44,6 @@
 
 #home-buttons > .contact-button {
   background-color: white;
-  color: rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (orientation: landscape) and (max-height: 576px) and (max-width: 992px) {
@@ -82,7 +81,7 @@
     bottom: 4rem;
   }
 
-  .intro-wrapper { 
+  .intro-wrapper {
     width: 100%;
   }
 }

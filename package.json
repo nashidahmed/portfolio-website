@@ -39,7 +39,6 @@
     "gulp-postcss": "^9.0.0",
     "gulp-terser": "^1.4.1",
     "jshint": "^2.12.0",
-    "node-sass": "^5.0.0",
     "postcss": "^8.1.6",
     "uglify-save-license": "^0.4.1"
   },
