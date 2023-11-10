@@ -28,14 +28,9 @@ jobs:
       - name: Build with Gulp
         run: npx gulp
 
-      - name: Commit dist folder to deploy branch
+      - name: Stash dist folder
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git checkout -b deploy-dist
-          git add dist
-          git commit -m "Deploy dist folder"
-          git push origin deploy-dist
+          git stash push -- dist
 
   deploy:
     runs-on: ubuntu-latest
@@ -44,11 +39,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Fetch deploy-dist branch
-        run: git fetch origin deploy-dist:deploy-dist
-
-      - name: Switch to deploy-dist branch
-        run: git checkout deploy-dist
+      - name: Apply stashed changes
+        run: git stash apply
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
