@@ -56,5 +56,4 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./dist
-          publish_branch: main
           external_repository: nashidahmed/nashidahmed.github.io
