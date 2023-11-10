@@ -28,9 +28,11 @@ jobs:
       - name: Build with Gulp
         run: npx gulp
 
-      - name: Stash dist folder
-        run: |
-          git stash push -- dist
+      - name: Archive dist folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
 
   deploy:
     runs-on: ubuntu-latest
@@ -39,8 +41,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Apply stashed changes
-        run: git stash apply
+      - name: Download dist folder
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+      - name: List files
+        run: ls -R
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
