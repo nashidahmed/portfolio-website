@@ -156,6 +156,7 @@
 }
 
 @media screen and (max-width: 576px) {
+  .col picture,
   .col .bg-img {
     height: 12.5rem;
   }
