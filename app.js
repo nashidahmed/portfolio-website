@@ -636,8 +636,12 @@ function loadScript(src, attributes) {
 
 // Run of page load to trigger preloader
 $(window).on("load", function () {
-  $(".brand-container").addClass("loaded")
-  $(".preloader").addClass("loaded")
+  setTimeout(function () {
+    $(".preloader").addClass("loaded")
+    setTimeout(() => {
+      $("body").addClass("loaded")
+    }, 1000)
+  }, 2000)
 
   loadScript(
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js",
@@ -650,10 +654,6 @@ $(window).on("load", function () {
     },
     { attributeName: "crossorigin", attributeValue: "anonymous" },
   ])
-
-  setTimeout(() => {
-    $("body").addClass("loaded")
-  }, 1000)
 })
 
 $(document).on("click", function (event) {
