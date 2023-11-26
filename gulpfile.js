@@ -142,6 +142,7 @@ function copyFiles() {
     "googlec6cb74579ce2fc25.html",
     "sitemap.xml",
     "robots.txt",
+    "CNAME",
     "README.md",
   ]).pipe(dest(DEST_HTML))
 }
