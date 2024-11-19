@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-  <title>Nashid Ahmed | Portfolio</title>
+  <title>Nashid Shah | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Hi there! I'm a full stack website developer with over 4 years of industry experience working to bring out the best in websites.">
@@ -63,7 +63,7 @@
     <!-- Logo and designation -->
     <div class="brand-container">
       <div class="brand">
-        <img class="logo" src="img/N_lightning_logo_light.svg" width="40px" height="40px" alt="Website logo" />
+        <!-- <img class="logo" src="img/N_lightning_logo_light.svg" width="40px" height="40px" alt="Website logo" /> -->
         <img class="brand-designation" src="img/brand-designation.svg" width="180px" height="40px"
           alt="Name & designation" />
       </div>
@@ -75,7 +75,7 @@
     <div class="content">
       <div class="intro-wrapper">
         <h4 class="name">
-          Nashid Ahmed Shah
+          Nashid Shah
         </h4>
         <div class="designation">
           Full Stack Developer
@@ -106,7 +106,7 @@
 
       <div class="about-me">
         <div class="about-text">
-          Hello! I'm Nashid Ahmed Shah, a Full Stack Developer with a deep love for technology and a penchant for
+          Hello! I'm Nashid Shah, a Full Stack Developer with a deep love for technology and a penchant for
           problem-solving. When I'm not immersed in code, you can often find me exploring other facets of life. I'm an
           avid <a class="fancy-link" target="_blank" rel="noreferrer" href="https://www.chess.com/member/nash115">chess
             <i class="fas fa-external-link-alt"></i></a> player, a football enthusiast, and a table tennis ace. Whether
@@ -123,7 +123,7 @@
 
           For a more comprehensive view of my professional background and experiences, I encourage you to download my
           resume. It provides insights into my work, skills, and accomplishments. You can find my resume <a
-            class="fancy-link" target="_blank" rel="noreferrer" href="pdf/2023_Resume.pdf">here <i
+            class="fancy-link" target="_blank" rel="noreferrer" href="pdf/Work_Resume.pdf">here <i
               class="fas fa-external-link-alt"></i></a>.
           <br />
 
@@ -131,7 +131,7 @@
           opportunities in the world of technology.
           <br />
         </div>
-        <a class="fancy-button" href="pdf/2023_Resume.pdf" download="Nashid Ahmed Shah's resume">
+        <a class="fancy-button" href="pdf/Work_Resume.pdf" download="Nashid Shah's resume">
           <i class="fas fa-file-download"></i>
           DOWNLOAD RESUME
         </a>
@@ -192,11 +192,11 @@
           with me through the social media links below. Let's chat!
         </p>
       </div>
-      <div class="contact-form">
+      <!-- <div class="contact-form">
         <div class="animatable fadeInUp">
           <i class="fas fa-map-marker-alt"></i>
           <span>
-            <strong>Nashid Ahmed Shah</strong><br />
+            <strong>Nashid Shah</strong><br />
             Newark, New Jersey
           </span>
         </div>
@@ -204,8 +204,26 @@
           <i class="far fa-envelope"></i>
           <a href="mailto:nashid.ahmed.115@gmail.com">nashid.ahmed.115@gmail.com</a>
         </div>
+      </div> -->
+      <form id="contact-form" class="email-form">
+        <label for="name">Name:</label>
+        <input id="name" placeholder="Name" class="name animatable fadeInUp" />
+        <label for="email">Email:</label>
+        <input id="email" placeholder="Email" class="email animatable fadeInUp" /> 
+        <label for="message">Message:</label>
+        <textarea id="message" class="message animatable fadeInUp" placeholder="Message" rows="3"></textarea>
+        <div class="text-center">
+          <button type="submit" class="fancy-button">SEND</button>
+        </div>
+      </form>
+      <div class="divider">
+        <hr>
+        <span>or</span>
+        <hr>
       </div>
-      <hr />
+      <div class="text-center animatable fadeInUp">
+        connect with me on
+      </div>
       <div class="social-media text-center animatable fadeInUp">
         <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/nashid-shah/">
           <i title="LinkedIn" class="fab fa-linkedin"></i>
@@ -226,13 +244,6 @@
           <i title="Discord" class="fab fa-discord"></i>
         </a>
       </div>
-      <!-- Use when email is configured -->
-      <!-- <div class="email-form">
-          <input type="email" placeholder="Email" class="email animatable fadeInUp" /> 
-          <input type="text" placeholder="Subject" class="subject animatable fadeInUp" />
-          <textarea class="message animatable fadeInUp" placeholder="Message" rows="3"></textarea>
-          <a class="fancy-button" href="#">SEND</a>
-        </div> -->
     </div>
     <div class="contact-map animatable fadeInUp">
       <a id="map" target="_blank" rel="noreferrer"
@@ -300,7 +311,7 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <small>&copy; 2023 Nashid Ahmed Shah</small>
+      <small>&copy; 2024 Nashid Shah</small>
     </div>
   </footer>
 
@@ -336,6 +347,33 @@
 
   <!-- Lazy loading module -->
   <script src="js/lazysizes.min.js" async></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+    (function(){
+      emailjs.init({
+        publicKey: "xWchz163jHbioqUbq",
+      });
+    })();
+  
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      const templateParams = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value,
+      };
+  
+      emailjs.send('service_k0xwl3o', 'template_ik01a6j', templateParams)
+        .then(function (response) {
+          alert('Email sent successfully!');
+        }, function (error) {
+          console.error('Failed to send email:', error);
+          alert('Failed to send email.');
+        });
+    });
+  </script>
 </body>
 
 

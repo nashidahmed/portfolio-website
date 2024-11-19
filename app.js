@@ -100,19 +100,47 @@ $(function () {
 
   const works = [
     {
+      timeline: "2024 - Present",
+      role: "Teaching Assistant",
+      name: "NEW JERSEY INSTITUTE OF TECHNOLOGY",
+      link: "https://www.njit.edu/",
+      description: [
+        "Teaching Assistant for two courses, facilitating weekly labs and recitations for over 90 students.",
+        "Grading over 250 assignments, quizzes and exams, providing personalized feedback.",
+        "Hosting office hours, contributing to improved comprehension and higher student engagement.",
+      ],
+    },
+    {
+      timeline: "2024 - 2024",
+      role: "Full Stack Developer",
+      name: "NJIT FINTECH LAB",
+      link: "https://www.njit.edu/",
+      description: [
+        "Enhanced the FHWA (Federal Highway Administration) mobile app by implementing Bluetooth connectivity for vehicles, improving connection reliability by 30%.",
+      ],
+    },
+    {
+      timeline: "2023 - 2023",
+      role: "Teaching Assistant",
+      name: "NEW JERSEY INSTITUTE OF TECHNOLOGY",
+      link: "https://www.njit.edu/",
+      description: [
+        "Developed 3 assignments for CS331 on relational algebra, SQL queries, triggers, and views, enhancing comprehension and engagement for over 50 students.",
+      ],
+    },
+    {
       timeline: "2023 - Present",
       role: "COMPUTER SCIENCE, M.S.",
       isCompany: false,
       name: "NEW JERSEY INSTITUTE OF TECHNOLOGY",
-      grade: "GPA - 4.0",
+      grade: "GPA - 3.61",
       link: "https://www.njit.edu/",
       description: [
-        "Teaching Assistant for CS 331 - Database System Design and Management.",
         "Winner of the ACM Battlesnake hackathon.",
       ],
     },
     {
-      timeline: "2021 - Present",
+      timeline: "2021 - 2022",
       role: "FULL STACK WEB3 DEVELOPER",
       name: "SELF-EMPLOYED",
       description: [
@@ -470,7 +498,7 @@ $(function () {
       work.timeline
     }">
       <div class="timeline-content">
-        <h2 class="timeline-content-title">${work.role}</h2>
+        <h2 class="timeline-content-title">${work.role.toUpperCase()}</h2>
         ${
           work.isCompany !== undefined
             ? work.isCompany
