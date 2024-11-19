@@ -41,12 +41,20 @@
 }
 
 .contact .social-media {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .contact .social-media i {
   margin: 0 0.5rem;
   font-size: 1.5rem;
+}
+
+.email-form {
+  margin: 1rem 0;
+}
+
+.email-form label {
+  font-size: 0.875rem;
 }
 
 .email-form input,
