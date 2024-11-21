@@ -662,6 +662,50 @@ function loadScript(src, attributes) {
   document.body.appendChild(script)
 }
 
+// Get form elements
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message');
+const sendButton = document.getElementById('send-message');
+
+// Function to validate email format
+function isValidEmail(email) {
+  // Simple regex for email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Function to validate a single field
+function validateField(input) {
+  const value = input.value.trim();
+
+  // Handle validation for each field independently
+  if (input.id === 'name') {
+    input.style.outline = value === '' ? '1px solid red' : '';
+  } else if (input.id === 'email') {
+    input.style.outline = value === '' || !isValidEmail(value) ? '1px solid red' : '';
+  } else if (input.id === 'message') {
+    input.style.outline = value === '' ? '1px solid red' : '';
+  }
+}
+
+// Function to check if the entire form is valid
+function checkFormValidity() {
+  const isNameValid = nameInput.value.trim() !== '';
+  const isEmailValid = emailInput.value.trim() !== '' && isValidEmail(emailInput.value.trim());
+  const isMessageValid = messageInput.value.trim() !== '';
+
+  sendButton.disabled = !(isNameValid && isEmailValid && isMessageValid);
+}
+
+// Attach event listeners to each input field
+[nameInput, emailInput, messageInput].forEach(input => {
+  input.addEventListener('input', () => {
+    validateField(input); // Validate the field being changed
+    checkFormValidity(); // Check if the form as a whole is valid
+  });
+});
+
 // Run of page load to trigger preloader
 $(window).on("load", function () {
   $(".preloader").addClass("loaded")

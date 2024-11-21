@@ -97,6 +97,11 @@ a {
   box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.4);
 }
 
+.fancy-button:disabled {
+  border: revert;
+  pointer-events: none;
+}
+
 .text-black {
   color: black;
 }

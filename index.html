@@ -213,7 +213,7 @@
         <label for="message">Message:</label>
         <textarea id="message" class="message animatable fadeInUp" placeholder="Message" rows="3"></textarea>
         <div class="text-center">
-          <button type="submit" class="fancy-button">SEND</button>
+          <button type="submit" id="send-message" class="fancy-button" disabled>SEND</button>
         </div>
       </form>
       <div class="divider">
@@ -358,6 +358,9 @@
   
     document.getElementById('contact-form').addEventListener('submit', function (e) {
       e.preventDefault();
+      const button = document.getElementById('send-message');
+      button.textContent = "SENDING..."
+      button.disabled = true;
   
       const templateParams = {
         name: document.getElementById('name').value,
@@ -371,7 +374,12 @@
         }, function (error) {
           console.error('Failed to send email:', error);
           alert('Failed to send email.');
-        });
+        })
+        .finally(() => {
+          button.textContent = "SEND"
+          button.disabled = false;
+        })
+
     });
   </script>
 </body>
