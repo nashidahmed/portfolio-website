@@ -4,6 +4,8 @@
   "description": "Nashid Ahmed's portfolio website",
   "main": "app.js",
   "scripts": {
+    "start": "npx gulp watch",
+    "build": "npx gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
