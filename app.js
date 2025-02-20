@@ -100,7 +100,7 @@ $(function () {
 
   const works = [
     {
-      timeline: "2024 - Present",
+      timeline: "2024 - 2024",
       role: "Teaching Assistant",
       name: "NEW JERSEY INSTITUTE OF TECHNOLOGY",
       link: "https://www.njit.edu/",
@@ -129,7 +129,7 @@ $(function () {
       ],
     },
     {
-      timeline: "2023 - Present",
+      timeline: "2023 - 2024",
       role: "COMPUTER SCIENCE, M.S.",
       isCompany: false,
       name: "NEW JERSEY INSTITUTE OF TECHNOLOGY",
